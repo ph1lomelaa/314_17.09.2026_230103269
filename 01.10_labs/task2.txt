@@ -1,0 +1,3 @@
+Row-Parallel Render Time:    1.590 s
+Column-Parallel Render Time: 1.677 s
+Saved image: mandelbrot_output.png

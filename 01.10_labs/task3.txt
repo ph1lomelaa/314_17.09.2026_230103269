@@ -1,0 +1,2 @@
+Heat Diffusion Complete: 0.206 s
+Throughput: 3281.37 Megacells/sec
