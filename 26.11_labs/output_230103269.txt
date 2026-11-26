@@ -63,7 +63,7 @@ OK: max_abs_diff < 1e-9, speedup at 8 threads = 1.40x
 === OPENMP PYTHON LAB VERIFICATION BUNDLE ===
 {
   "instructor": "Instructor - Sufyan bin Uzayr",
-  "student_name": "Your Full Name",
+  "student_name": "Muslima Kosmagambetova",
   "student_id": 230103269,
   "omp_layer": "omp",
   "cpu_cores": 10,

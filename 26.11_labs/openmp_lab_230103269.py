@@ -7,7 +7,7 @@ import numpy as np
 import numba as nb
 from numba import njit, prange, set_num_threads, get_num_threads, get_thread_id
 
-STUDENT_NAME = "Your Full Name"
+STUDENT_NAME = "Muslima Kosmagambetova"
 STUDENT_ID = 230103269
 
 assert isinstance(STUDENT_ID, int) and STUDENT_ID > 0, "Set a valid numeric STUDENT_ID!"
