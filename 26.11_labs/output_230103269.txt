@@ -1,0 +1,71 @@
+Backend: omp | Logical Cores: 10 | Student: 230103269
+
+===== TASK 1 =====
+reference 1 thread: sum(hist)=4006144, N_T1=4006144
+
+buggy_hist_omp, 8 threads, 10 runs:
+  run 1: sum=994471 lost=3011673 max_diff=55287
+  run 2: sum=949872 lost=3056272 max_diff=56108
+  run 3: sum=943473 lost=3062671 max_diff=56136
+  run 4: sum=945309 lost=3060835 max_diff=56268
+  run 5: sum=952238 lost=3053906 max_diff=56119
+  run 6: sum=919449 lost=3086695 max_diff=56630
+  run 7: sum=934322 lost=3071822 max_diff=56422
+  run 8: sum=950213 lost=3055931 max_diff=56039
+  run 9: sum=1123879 lost=2882265 max_diff=52882
+  run 10: sum=1115542 lost=2890602 max_diff=53144
+total lost = 30232672
+worst run lost = 3086695 (77.0490%)
+max bin discrepancy = 56630
+
+safe_hist_omp:
+  1 threads: sum=4006144 workers=1 time=0.0054s identical=True
+  2 threads: sum=4006144 workers=2 time=0.0028s identical=True
+  4 threads: sum=4006144 workers=4 time=0.0017s identical=True
+  8 threads: sum=4006144 workers=8 time=0.0017s identical=True
+OK: bit-identical on 1, 2, 4, 8 threads
+
+===== TASK 2 =====
+PAD_STRIDE = 40 slots = 320 bytes
+
+  1 threads: unpadded=0.2542s padded=0.2449s speedup=1.04x equal=True
+  2 threads: unpadded=0.2746s padded=0.2614s speedup=1.05x equal=True
+  4 threads: unpadded=0.4357s padded=0.3446s speedup=1.26x equal=True
+  8 threads: unpadded=0.8658s padded=0.5269s speedup=1.64x equal=True
+
+speedup at 8 threads = 1.64x
+time growth 1->8 unpadded = 3.41x
+time growth 1->8 padded   = 2.15x
+
+===== TASK 3 =====
+work_units: min=40 max=1889 mean=663.1 total=9209704
+
+  1 threads: static=0.0525s imbal=1.000 | balanced=0.0525s imbal=1.000
+  2 threads: static=0.0264s imbal=1.002 | balanced=0.0257s imbal=1.003
+  4 threads: static=0.0134s imbal=1.003 | balanced=0.0134s imbal=1.007
+  8 threads: static=0.0077s imbal=1.016 | balanced=0.0080s imbal=1.027
+
+max|out_static - out_balanced| = 0.000e+00 (gate < 1e-11)
+imbalance at 8 threads: static=1.0163 balanced=1.0265 (gate < 1.15)
+OK: both gates passed
+
+===== TASK 4 =====
+grid=416x640 omega=1.7200 sweeps=600
+
+  1 threads: time=0.2348s speedup=1.00x max_delta=5.144e-02 diff=0.0e+00
+  2 threads: time=0.1642s speedup=1.43x max_delta=5.144e-02 diff=0.000e+00
+  4 threads: time=0.1427s speedup=1.65x max_delta=5.144e-02 diff=0.000e+00
+  8 threads: time=0.1677s speedup=1.40x max_delta=5.144e-02 diff=0.000e+00
+
+residual after 600 sweeps: max_delta=5.143537e-02
+OK: max_abs_diff < 1e-9, speedup at 8 threads = 1.40x
+
+=== OPENMP PYTHON LAB VERIFICATION BUNDLE ===
+{
+  "instructor": "Instructor - Sufyan bin Uzayr",
+  "student_name": "Your Full Name",
+  "student_id": 230103269,
+  "omp_layer": "omp",
+  "cpu_cores": 10,
+  "verification_digest": "188DD0988A459B7C52C0"
+}
